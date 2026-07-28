@@ -1,0 +1,198 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{52pt}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+    \includegraphics[height=1.5cm]{ur_image.png}
+}
+
+\fancyhead[R]{
+\begin{tabular}{r}
+\textbf{Monitoria Álgebra Lineal - Vectores} \\
+Gabriel Fernando Salcedo Zamora \\
+\end{tabular}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\section*{Taller de vectores}
+
+\begin{enumerate}
+    %operaciones de vectores
+    \item Resuelva los siguientes problemas teniendo en cuenta que $\mathbf{u} = (-1,3,-8)$, $\mathbf{v} = (2,-2,4)$ y $\mathbf{w} = (9,-5,0)$:
+    \begin{enumerate}
+        \item $\mathbf{u} + \mathbf{w}$
+        \item $3\mathbf{v}$
+        \item $2\mathbf{u} - 5\mathbf{v}$
+        \item $3\mathbf{u} - 7\mathbf{v} - 4\mathbf{w}$
+        \item $\alpha \mathbf{u} - \dfrac{1}{\beta} \mathbf{v}$, con $\alpha$ y $\beta$ escalares reales.
+    \end{enumerate}
+    
+    %vectores paralelos
+    \item Determine si los vectores $\mathbf{u} = (2,-1,4)$ y $\mathbf{v} = (4,-2,8)$ son paralelos. En caso afirmativo, encuentre un escalar $\alpha$ tal que $\mathbf{u}=\alpha\mathbf{v}$.
+    
+    %combinacion lineal
+    \item Determine si el vector $(8,6,5)$ es combinación lineal de los vectores $(-1,3,2)$ y $(5,5,4)$. En caso de que sea cierto, exprésela explícitamente; en caso contrario, justifique su respuesta.
+    
+    %norma de un vector
+    \item Calcule la norma de los siguientes vectores:
+    \begin{enumerate}
+        \item $\mathbf{u} = \left(\dfrac{1}{2}, -2\right)$
+        \item $\mathbf{v} = (2,2,\sqrt{3})$
+        \item $\mathbf{w} = (\pi,0)$
+    \end{enumerate}
+    
+    %norma con parametro
+    \item Determine $\alpha$ tal que $\|(1, \alpha, -3, 2)\| = 5$. Recuerde que $\|\mathbf{v}\| = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$.
+    
+\end{enumerate}
+
+\newpage
+
+\section*{Solución}
+
+\begin{enumerate}
+    % Ejercicio 1
+    \item Dados $\mathbf{u} = (-1,3,-8)$, $\mathbf{v} = (2,-2,4)$ y $\mathbf{w} = (9,-5,0)$:
+
+    \begin{enumerate}
+        \item 
+        \[
+        \mathbf{u} + \mathbf{w} = (-1+9,\; 3-5,\; -8+0) = (8,-2,-8).
+        \]
+
+        \item 
+        \[
+        3\mathbf{v} = 3(2,-2,4) = (6,-6,12).
+        \]
+
+        \item 
+        \[
+        2\mathbf{u} - 5\mathbf{v}
+        = 2(-1,3,-8) - 5(2,-2,4)
+        = (-2,6,-16) - (10,-10,20)
+        = (-12,16,-36).
+        \]
+        
+        \item 
+        \[
+        3\mathbf{u} - 7\mathbf{v} - 4\mathbf{w}
+        = (-3,9,-24) - (14,-14,28) - (36,-20,0)
+        = (-53,43,-52).
+        \]
+
+        \item 
+        \[
+        \alpha \mathbf{u} - \frac{1}{\beta}\mathbf{v}
+        = \alpha(-1,3,-8) - \frac{1}{\beta}(2,-2,4)
+        = \left(-\alpha-\frac{2}{\beta},\; 3\alpha+\frac{2}{\beta},\; -8\alpha-\frac{4}{\beta}\right),
+        \]
+        con $\alpha,\beta \in \mathbb{R}$ y $\beta \neq 0$.
+    \end{enumerate}
+
+    % Ejercicio 2
+    \item Los vectores $\mathbf{u}=(2,-1,4)$ y $\mathbf{v}=(4,-2,8)$ son paralelos si existe un escalar $\alpha$ tal que $\mathbf{u}=\alpha\mathbf{v}$.
+
+    Comparando componentes:
+    \[
+    \alpha = \frac{2}{4} = \frac{-1}{-2} = \frac{4}{8} = \frac{1}{2}.
+    \]
+
+    Como el mismo escalar satisface las tres componentes, los vectores son paralelos y
+    \[
+    \mathbf{u}=\frac{1}{2}\mathbf{v}.
+    \]
+
+    % Ejercicio 3
+    \item Buscamos escalares $\alpha,\beta \in \mathbb{R}$ tales que
+    \[
+    \alpha(-1,3,2) + \beta(5,5,4) = (8,6,5).
+    \]
+
+    Esto genera el sistema de ecuaciones:
+    \[
+    \begin{cases}
+    -\alpha + 5\beta = 8 \\
+    3\alpha + 5\beta = 6 \\
+    2\alpha + 4\beta = 5
+    \end{cases}
+    \]
+
+    Restando la primera ecuación de la segunda:
+    \[
+    (3\alpha + 5\beta) - (-\alpha + 5\beta) = 6 - 8 \;\Rightarrow\; 4\alpha = -2 \;\Rightarrow\; \alpha = -\frac{1}{2}.
+    \]
+
+    Sustituyendo en la primera ecuación:
+    \[
+    -\left(-\frac{1}{2}\right) + 5\beta = 8 \;\Rightarrow\; \frac{1}{2} + 5\beta = 8 \;\Rightarrow\; \beta = \frac{3}{2}.
+    \]
+
+    Verificamos que estos valores satisfacen la tercera ecuación:
+    \[
+    2\left(-\frac{1}{2}\right) + 4\left(\frac{3}{2}\right) = -1 + 6 = 5. \checkmark
+    \]
+
+    Como el sistema es consistente para las tres ecuaciones, el vector $(8,6,5)$ \textbf{sí} es combinación lineal de $(-1,3,2)$ y $(5,5,4)$:
+    \[
+    (8,6,5) = -\frac{1}{2}(-1,3,2) + \frac{3}{2}(5,5,4).
+    \]
+
+    % Ejercicio 4
+    \item 
+    \begin{enumerate}
+        \item 
+        \[
+        \|\mathbf{u}\| = \sqrt{\left(\frac{1}{2}\right)^2 + (-2)^2}
+        = \sqrt{\frac{1}{4}+4}
+        = \frac{\sqrt{17}}{2}.
+        \]
+
+        \item 
+        \[
+        \|\mathbf{v}\| = \sqrt{2^2+2^2+(\sqrt3)^2}
+        = \sqrt{4+4+3}
+        = \sqrt{11}.
+        \]
+
+        \item 
+        \[
+        \|\mathbf{w}\| = \sqrt{\pi^2 + 0^2} = |\pi| = \pi.
+        \]
+    \end{enumerate}
+
+    % Ejercicio 5
+    \item 
+    \[
+    \|(1,\alpha,-3,2)\| = \sqrt{1^2+\alpha^2+(-3)^2+2^2}
+    = \sqrt{\alpha^2+14}.
+    \]
+
+    Como $\|(1,\alpha,-3,2)\|=5$, se tiene:
+    \[
+    \sqrt{\alpha^2+14}=5 \;\Rightarrow\; \alpha^2+14=25 \;\Rightarrow\; \alpha^2=11.
+    \]
+
+    Por lo tanto,
+    \[
+    \alpha = \pm \sqrt{11}.
+    \]
+\end{enumerate}
+
+\end{document}
