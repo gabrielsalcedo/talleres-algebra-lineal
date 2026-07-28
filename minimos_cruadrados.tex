@@ -1,0 +1,118 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{multirow}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{52pt}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+    \includegraphics[height=1.5cm]{ur_image.png}
+}
+
+\fancyhead[R]{
+\begin{tabular}{r}
+\textbf{Monitoria Álgebra Lineal} \\
+Gabriel Fernando Salcedo Zamora \\
+\end{tabular}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\section*{Mínimos Cuadrados}
+
+\vspace{0.3cm}
+
+Dado un sistema sobredeterminado $Ax \approx b$, donde no existe solución exacta,
+se busca un vector $\hat{x}$ que minimice el error cuadrático:
+
+\[
+\min_x \|Ax - b\|^2
+\]
+
+La solución de este problema está dada por la ecuación normal:
+
+\[
+\hat{x} = (A^T A)^{-1} A^T b
+\]
+
+Esta expresión permite encontrar la recta (o modelo lineal) que mejor se ajusta a un conjunto de datos.
+
+El vector solución se interpreta como:
+\[
+\hat{x} =
+\begin{bmatrix}
+b \\
+m
+\end{bmatrix}
+\]
+
+donde $m$ es la pendiente y $b$ es la intersección con el eje $y$.  
+Así, la recta se construye como:
+\[
+y = mx + b
+\]
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+    \item De los siguientes problemas encuentre la recta que mejor se ajusta a los puntos dados:
+    \begin{enumerate}
+        \item $(5,-3),(2,-4),(-3,6)$
+        \item $(1,3),(-2,4),(7,0)$
+        \item $(-1, 10), (-2, 6), (-6, 6), (2, -2)$
+        \item $(1, 4), (-2, 5), (3, -1), (4, 1)$
+    \end{enumerate}
+    
+    \item Un fabricante compra grandes cantidades de refacciones para cierta máquina. Él encuentra
+que este costo depende del número de cajas compradas al mismo tiempo y que el costo
+por unidad disminuye conforme el número de cajas aumenta. Supone que el costo es una
+función lineal del volumen y de las facturas anteriores obtiene la siguiente tabla:
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |cc| } 
+\hline
+Número de cajas compradas & Costo total (USD)  \\
+\hline
+10 & 150 \\
+30 & 260 \\
+50 & 325 \\
+100 & 500 \\
+175 & 670 \\
+\hline
+\end{tabular}
+\end{table}
+\end{enumerate}
+
+\newpage
+
+\section*{Solución}
+
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item $y = -\dfrac{17}{14}x + \dfrac{9}{7}$
+        \item $y = -\dfrac{19}{42}x + \dfrac{68}{21}$
+        \item $y = -\dfrac{7}{30}x + \dfrac{79}{15}$
+        \item $y \approx -0.88x + 3.57$
+    \end{enumerate}
+
+    \item $y \approx 3.05x + 142.6$
+
+\end{enumerate}
+
+\end{document}
+
