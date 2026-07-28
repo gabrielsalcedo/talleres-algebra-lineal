@@ -1,0 +1,295 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{52pt}
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+    \includegraphics[height=1.5cm]{ur_image.png}
+}
+
+\fancyhead[R]{
+\begin{tabular}{r}
+\textbf{Monitoria Álgebra Lineal} \\
+Gabriel Fernando Salcedo Zamora \\
+\end{tabular}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\section*{Taller de Matrices}
+
+\begin{enumerate}
+
+    %producto punto
+    
+    \item En los siguientes problemas calcule el producto punto de los vectores. Indique además en cuáles casos los vectores son ortogonales.
+
+    \begin{enumerate}
+        \item $(2, -1) \cdot (4, 5)$
+        \item $(3,-2,5) \cdot (-1,-2,6)$
+        \item $(\pi, \frac{\pi^2}{3}, 3) \cdot (\pi^2, -9\pi, \pi^3)$
+        \item $(x, y, z) \cdot (y, z, x)$
+    \end{enumerate}
+
+    %vectores unitarios
+
+    \item Dado $\mathbf{u}=(2,4,2,-1)$, obtenga un vector $\mathbf{w}$ que sea paralelo al vector $\mathbf{u}$ tal que $\|w\|=10$
+    
+    %operaciones de matrices
+    
+    \item Resuelva los siguientes operaciones teniendo en cuenta que: 
+    \[
+    A = \begin{pmatrix} 1 & 0 & 6\\4 & 1 & 1 \\ -2 & 9 & 2 \end{pmatrix},
+    \quad 
+    B = \begin{pmatrix} -2 & 5 & -9\\3 & -4 & 1 \\ -1 & 0 & -6 \end{pmatrix},
+    \quad
+    C = \begin{pmatrix} 7 & 4 & 2 \\ -5 & -2 & 3 \\ 1 & 5 & 7     \end{pmatrix}
+    \]
+    \begin{enumerate}
+        \item $A-2B$
+        \item $A+B+C$
+        \item $3B-2A$
+        \item $3A+2B-4C$
+    \end{enumerate}
+    
+    %multiplicación de matrices
+    
+    \item  Calcule el producto de las siguientes matrices o explique por qué no es posible.
+    \begin{enumerate}
+        \item $\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} -1 & 0 \\ 2 & 3   \end{pmatrix}$
+        \item $\begin{pmatrix} 2 & -1\end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & 1   \end{pmatrix}$
+        \item $\begin{pmatrix} 1 & 4 & 0 & 2 \end{pmatrix}\begin{pmatrix} 3 & -6 \\ 2 & 4 \\ 1 & 0 \\ -2 & 3  \end{pmatrix}$
+        \item $\begin{pmatrix} a & b & c \\ d & e & f \\ g & h & j \end{pmatrix}\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$, donde $a,b,c,d,e,f,g,h,j$, son números reales.
+    \end{enumerate}
+    
+\end{enumerate}
+
+%\section*{Solución}
+\newpage
+
+\section*{Solución}
+
+\begin{enumerate}
+
+%-------------------------------------------------
+% Producto punto
+%-------------------------------------------------
+
+\item Producto punto y ortogonalidad.
+
+\begin{enumerate}
+    \item 
+    \[
+    (2,-1)\cdot(4,5)=2(4)+(-1)(5)=8-5=3
+    \]
+    Como el producto punto es distinto de cero, los vectores no son ortogonales.
+
+    \item 
+    \[
+    (3,-2,5)\cdot(-1,-2,6)=3(-1)+(-2)(-2)+5(6)
+    \]
+    \[
+    =-3+4+30=31
+    \]
+    No son ortogonales.
+
+    \item 
+    \[
+    (\pi,\tfrac{\pi^2}{3},3)\cdot(\pi^2,-9\pi,\pi^3)
+    \]
+    \[
+    =\pi(\pi^2)+\frac{\pi^2}{3}(-9\pi)+3(\pi^3)
+    \]
+    \[
+    =\pi^3-3\pi^3+3\pi^3=\pi^3
+    \]
+    No son ortogonales.
+
+    \item 
+    \[
+    (x,y,z)\cdot(y,z,x)=xy+yz+zx
+    \]
+    Los vectores son ortogonales cuando
+    \[
+    xy+yz+zx=0
+    \]
+\end{enumerate}
+
+%-------------------------------------------------
+% Vector unitario
+%-------------------------------------------------
+
+\item Vector paralelo con norma 10.
+
+Dado el vector $\mathbf{u}=(2,4,2,-1)$, primero calculamos su norma:
+\[
+\|\mathbf{u}\|=\sqrt{2^2+4^2+2^2+(-1)^2}=\sqrt{25}=5
+\]
+
+El vector unitario asociado es:
+\[
+\hat{u}=\frac{1}{5}(2,4,2,-1)
+\]
+
+Entonces, un vector paralelo a $\mathbf{u}$ con norma 10 es:
+\[
+\mathbf{w}=10\hat{u}=(4,8,4,-2)
+\]
+
+%-------------------------------------------------
+% Operaciones con matrices
+%-------------------------------------------------
+\newpage
+
+\item Operaciones con matrices.
+
+\begin{enumerate}
+    \item 
+    \[
+    A-2B=
+    \begin{pmatrix}
+    1 & 0 & 6\\
+    4 & 1 & 1\\
+    -2 & 9 & 2
+    \end{pmatrix}
+    -
+    2\begin{pmatrix}
+    -2 & 5 & -9\\
+    3 & -4 & 1\\
+    -1 & 0 & -6
+    \end{pmatrix}
+    \]
+    \[
+    =
+    \begin{pmatrix}
+    5 & -10 & 24\\
+    -2 & 9 & -1\\
+    0 & 9 & 14
+    \end{pmatrix}
+    \]
+
+    \item 
+    \[
+    A+B+C=
+    \begin{pmatrix}
+    6 & 9 & -1\\
+    2 & -5 & 5\\
+    -2 & 14 & 3
+    \end{pmatrix}
+    \]
+
+    \item 
+    \[
+    3B-2A=
+    \begin{pmatrix}
+    -8 & 15 & -39\\
+    1 & -14 & 1\\
+    1 & -18 & -22
+    \end{pmatrix}
+    \]
+
+    \item 
+    \[
+3A+2B-4C=
+\begin{pmatrix}
+-29 & -6 & -8\\
+38 & 3 & -7\\
+-12 & 7 & -34
+\end{pmatrix}
+\]
+
+\end{enumerate}
+
+%-------------------------------------------------
+% Multiplicación de matrices
+%-------------------------------------------------
+
+\item Multiplicación de matrices.
+
+\begin{enumerate}
+    \item 
+    \[
+    \begin{pmatrix}
+    1 & -1\\
+    1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+    -1 & 0\\
+    2 & 3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    -3 & -3\\
+    1 & 3
+    \end{pmatrix}
+    \]
+
+    \item 
+    \[
+    \begin{pmatrix}
+    2 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+    1 & 0\\
+    0 & 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    2 & -1
+    \end{pmatrix}
+    \]
+
+    \item 
+    \[
+    \begin{pmatrix}
+    1 & 4 & 0 & 2
+    \end{pmatrix}
+    \begin{pmatrix}
+    3 & -6\\
+    2 & 4\\
+    1 & 0\\
+    -2 & 3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    7 & 16
+    \end{pmatrix}
+    \]
+
+    \item 
+    \[
+    \begin{pmatrix}
+    a & b & c\\
+    d & e & f\\
+    g & h & j
+    \end{pmatrix}
+    \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    a & b & c\\
+    d & e & f\\
+    g & h & j
+    \end{pmatrix}
+    \]
+    El producto es la misma matriz, ya que se multiplica por la matriz identidad.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
