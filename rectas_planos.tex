@@ -1,0 +1,106 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{amsmath}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{52pt}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+    \includegraphics[height=1.5cm]{ur_image.png}
+}
+
+\fancyhead[R]{
+\begin{tabular}{r}
+\textbf{Monitoria Álgebra Lineal} \\
+Gabriel Fernando Salcedo Zamora \\
+\end{tabular}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\section*{Ejercicios Rectas y Planos}
+\begin{enumerate}
+    \item Encuentre una ecuación vectorial, las ecuaciones paramétricas y las simétricas de la recta indicada.
+    \begin{enumerate}
+        \item Contiene a $(6,10,3)$ y es paralela al vector $(-10,7,9)$
+        \item Contiene a $(a,b,c)$ y es paralela al vector $(0,d,e)$
+    \end{enumerate}
+    \item Determine si las rectas son ortogonales o paralelas.
+    \begin{enumerate}
+        \item \[
+L_1:\displaystyle \frac{x - 3}{2} = \frac{y + 1}{4} = \frac{z - 2}{-1}
+\quad
+L_2:\displaystyle \frac{x - 3}{5} = \frac{y + 1}{-2} = \frac{z - 3}{2}
+\]
+        \item \[
+L_1:\displaystyle \frac{x - 1}{1} = \frac{y + 3}{2} = \frac{z + 3}{3}
+\quad
+L_2:\displaystyle \frac{x - 3}{3} = \frac{y - 1}{6} = \frac{z - 8}{9}
+\]
+    \end{enumerate}
+    \item Encuentre la ecuación del plano para cada caso
+    \begin{enumerate}
+        \item $P=(1,2,3); N=(1,1,0)$
+        \item $P=(2,-1,6); N=(3,-1,2)$
+    \end{enumerate}
+    \item Determine el punto de intersección de la recta: \[
+\begin{aligned}
+x &= 5 + 2t \\
+y &= 1 - 3t \\
+z &= 2 + t
+\end{aligned}
+\] y el plano $2x+3y-4z+5=0$
+    \item Determine la ecuación del plano que pase por el punto $(2,4,-3)$ y es paralelo al plano $-2x+4y-5z+6=0$
+\end{enumerate}
+
+\newpage
+
+\section*{Respuestas}
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $(x,y,z) = (6,10,3) + t(-10,7,9)$\[
+\begin{aligned}
+x &= 6-10t \\
+y &= 10+7t \\
+z &= 3+9t
+\end{aligned}
+\]
+\[\displaystyle \frac{x - 6}{-10} = \frac{y - 10}{7} = \frac{z - 3}{9}
+\]
+        \item $(x,y,z) = (a,b,c) + t(0,d,e)$\[
+\begin{aligned}
+x &= a \\
+y &= b+dt \\
+z &= c+et
+\end{aligned}
+\]
+\[\displaystyle x=a; \frac{y - b}{d} = \frac{z - c}{e}
+\]
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item $L_1$ es ortogonal a $L_2$
+        \item $L_1$ es paralela a $L_2$
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $1(x-1)+1(y-2)+0(z-3)=0;\quad x+y-3=0$
+        \item $3(x-2)-(y+1)+2(z-6)=0;\quad3x-y+2z-19=0$
+    \end{enumerate}
+    \item El punto es: $(\frac{65}{9}, -\frac{7}{3}, \frac{28}{9})$
+    \item La ecuación del plano es: $-2x+4y-5z-27=0$
+\end{enumerate}
+\end{document}
