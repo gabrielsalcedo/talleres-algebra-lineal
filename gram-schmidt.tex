@@ -1,0 +1,625 @@
+\documentclass[12pt,letterpaper]{article}
+
+%------------------------------------------------
+% PAQUETES
+%------------------------------------------------
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+%------------------------------------------------
+% CONFIGURACIÓN DE PÁGINA
+%------------------------------------------------
+\geometry{margin=2.5cm}
+\setlength{\headheight}{52pt}
+
+%------------------------------------------------
+% ENCABEZADO
+%------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+    \includegraphics[height=1.5cm]{ur_image.png}
+}
+
+\fancyhead[R]{
+\begin{tabular}{r}
+\textbf{Monitoría Álgebra Lineal} \\
+Gabriel Fernando Salcedo Zamora
+\end{tabular}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+%------------------------------------------------
+% COMANDO PARA RESPUESTAS
+%------------------------------------------------
+\newcommand{\respuesta}[1]{
+\[
+\textcolor{blue}{#1}
+\]
+}
+
+%------------------------------------------------
+% DOCUMENTO
+%------------------------------------------------
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Gram--Schmidt}}\\[0.3cm]
+    \rule{\textwidth}{0.4pt}
+\end{center}
+
+%================================================
+% EJERCICIOS
+%================================================
+
+\section*{Ejercicios}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+
+%------------------------------------------------
+\item Sean los vectores
+
+\[
+v_1=(1,0),
+\qquad
+v_2=(1,1)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Tome
+\[
+u_1=v_1
+\]
+
+\item Calcule la proyección de \(v_2\) sobre \(u_1\).
+
+\item Halle
+\[
+u_2=v_2-\operatorname{proj}_{u_1}(v_2)
+\]
+
+\item Verifique que \(u_1\) y \(u_2\) sean ortogonales.
+
+\item Normalice los vectores obtenidos.
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%------------------------------------------------
+\item Aplique el proceso de Gram--Schmidt al conjunto
+
+\[
+v_1=(1,1),
+\qquad
+v_2=(1,-1)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Verifique si los vectores ya son ortogonales.
+
+\item Encuentre una base ortonormal.
+
+\item Compruebe que cada vector tiene norma igual a 1.
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%------------------------------------------------
+\item Considere los vectores
+
+\[
+v_1=(1,0,0),
+\qquad
+v_2=(1,1,0)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Calcule \(u_1\).
+
+\item Halle la proyección de \(v_2\) sobre \(u_1\).
+
+\item Determine \(u_2\).
+
+\item Verifique que
+\[
+u_1\cdot u_2=0
+\]
+
+\item Obtenga una base ortonormal.
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%------------------------------------------------
+\item Sean
+
+\[
+v_1=(1,1,0),
+\qquad
+v_2=(1,0,1),
+\qquad
+v_3=(0,1,1)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Aplique el proceso de Gram--Schmidt.
+
+\item Encuentre los vectores ortogonales:
+\[
+u_1,\quad u_2,\quad u_3
+\]
+
+\item Verifique la ortogonalidad entre ellos.
+
+\item Normalice únicamente el vector \(u_1\).
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%------------------------------------------------
+\item Considere los vectores
+
+\[
+v_1=(1,1,1),
+\qquad
+v_2=(2,2,2)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Determine si los vectores son linealmente independientes.
+
+\item Inicie el proceso de Gram--Schmidt.
+
+\item Explique qué ocurre al calcular el segundo vector ortogonal.
+
+\item Interprete geométricamente el resultado.
+
+\end{enumerate}
+
+\end{enumerate}
+
+%================================================
+% SOLUCIONES
+%================================================
+
+\newpage
+
+\section*{Soluciones}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+
+%================================================
+% EJERCICIO 1
+%================================================
+
+\item Sean
+
+\[
+v_1=(1,0),
+\qquad
+v_2=(1,1)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+%------------------------------------------------
+\item Primer vector ortogonal
+
+\respuesta{
+u_1=v_1=(1,0)
+}
+
+%------------------------------------------------
+\item Proyección de \(v_2\) sobre \(u_1\)
+
+\respuesta{
+\operatorname{proj}_{u_1}(v_2)
+=
+\frac{v_2\cdot u_1}{u_1\cdot u_1}u_1
+}
+
+\respuesta{
+=
+\frac{(1)(1)+(1)(0)}{(1)^2+(0)^2}(1,0)
+}
+
+\respuesta{
+=(1)(1,0)=(1,0)
+}
+
+%------------------------------------------------
+\item Cálculo de \(u_2\)
+
+\respuesta{
+u_2=v_2-\operatorname{proj}_{u_1}(v_2)
+}
+
+\respuesta{
+=(1,1)-(1,0)=(0,1)
+}
+
+%------------------------------------------------
+\item Verificación de ortogonalidad
+
+\respuesta{
+u_1\cdot u_2=(1)(0)+(0)(1)=0
+}
+
+Por lo tanto, los vectores son ortogonales.
+
+%------------------------------------------------
+\item Normalización
+
+\respuesta{
+\|u_1\|=\sqrt{1^2+0^2}=1
+}
+
+\respuesta{
+\|u_2\|=\sqrt{0^2+1^2}=1
+}
+
+La base ortonormal es:
+
+\respuesta{
+\left\{
+(1,0),
+(0,1)
+\right\}
+}
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%================================================
+% EJERCICIO 2
+%================================================
+
+\item Sean
+
+\[
+v_1=(1,1),
+\qquad
+v_2=(1,-1)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+%------------------------------------------------
+\item Verificación de ortogonalidad
+
+\respuesta{
+v_1\cdot v_2=(1)(1)+(1)(-1)=1-1=0
+}
+
+Los vectores ya son ortogonales.
+
+%------------------------------------------------
+\item Base ortonormal
+
+\respuesta{
+\|v_1\|=\sqrt{1^2+1^2}=\sqrt2
+}
+
+\respuesta{
+\|v_2\|=\sqrt{1^2+(-1)^2}=\sqrt2
+}
+
+\respuesta{
+e_1=
+\left(
+\frac1{\sqrt2},
+\frac1{\sqrt2}
+\right)
+}
+
+\respuesta{
+e_2=
+\left(
+\frac1{\sqrt2},
+\frac{-1}{\sqrt2}
+\right)
+}
+
+%------------------------------------------------
+\item Verificación de norma
+
+\respuesta{
+\|e_1\|=\|e_2\|=1
+}
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%================================================
+% EJERCICIO 3
+%================================================
+
+\item Sean
+
+\[
+v_1=(1,0,0),
+\qquad
+v_2=(1,1,0)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+%------------------------------------------------
+\item Primer vector ortogonal
+
+\respuesta{
+u_1=v_1=(1,0,0)
+}
+
+%------------------------------------------------
+\item Proyección
+
+\respuesta{
+\operatorname{proj}_{u_1}(v_2)
+=
+\frac{v_2\cdot u_1}{u_1\cdot u_1}u_1
+}
+
+\respuesta{
+=
+\frac{1}{1}(1,0,0)
+=(1,0,0)
+}
+
+%------------------------------------------------
+\item Cálculo de \(u_2\)
+
+\respuesta{
+u_2=(1,1,0)-(1,0,0)
+}
+
+\respuesta{
+u_2=(0,1,0)
+}
+
+%------------------------------------------------
+\item Verificación
+
+\respuesta{
+u_1\cdot u_2=(1)(0)+(0)(1)+(0)(0)=0
+}
+
+%------------------------------------------------
+\item Base ortonormal
+
+Como ambos vectores tienen norma 1:
+
+\respuesta{
+\left\{
+(1,0,0),
+(0,1,0)
+\right\}
+}
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%================================================
+% EJERCICIO 4
+%================================================
+
+\item Sean
+
+\[
+v_1=(1,1,0),
+\qquad
+v_2=(1,0,1),
+\qquad
+v_3=(0,1,1)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+%------------------------------------------------
+\item Aplicación de Gram--Schmidt
+
+\respuesta{
+u_1=v_1=(1,1,0)
+}
+
+\respuesta{
+u_2=v_2-\operatorname{proj}_{u_1}(v_2)
+}
+
+\respuesta{
+v_2\cdot u_1=1
+}
+
+\respuesta{
+u_1\cdot u_1=2
+}
+
+\respuesta{
+\operatorname{proj}_{u_1}(v_2)
+=
+\frac12(1,1,0)
+=
+\left(
+\frac12,
+\frac12,
+0
+\right)
+}
+
+\respuesta{
+u_2=
+\left(
+1,0,1
+\right)
+-
+\left(
+\frac12,
+\frac12,
+0
+\right)
+}
+
+\respuesta{
+u_2=
+\left(
+\frac12,
+-\frac12,
+1
+\right)
+}
+
+%------------------------------------------------
+\item Cálculo de \(u_3\)
+
+\respuesta{
+u_3=
+v_3
+-
+\operatorname{proj}_{u_1}(v_3)
+-
+\operatorname{proj}_{u_2}(v_3)
+}
+
+\respuesta{
+\operatorname{proj}_{u_1}(v_3)
+=
+\left(
+\frac12,
+\frac12,
+0
+\right)
+}
+
+\respuesta{
+\operatorname{proj}_{u_2}(v_3)
+=
+\left(
+-\frac13,
+\frac13,
+-\frac23
+\right)
+}
+
+\respuesta{
+u_3=
+\left(
+-\frac16,
+\frac16,
+\frac53
+\right)
+}
+
+%------------------------------------------------
+\item Verificación de ortogonalidad
+
+\respuesta{
+u_1\cdot u_2=0
+}
+
+\respuesta{
+u_1\cdot u_3=0
+}
+
+\respuesta{
+u_2\cdot u_3=0
+}
+
+%------------------------------------------------
+\item Normalización de \(u_1\)
+
+\respuesta{
+\|u_1\|=\sqrt2
+}
+
+\respuesta{
+e_1=
+\left(
+\frac1{\sqrt2},
+\frac1{\sqrt2},
+0
+\right)
+}
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%================================================
+% EJERCICIO 5
+%================================================
+
+\item Sean
+
+\[
+v_1=(1,1,1),
+\qquad
+v_2=(2,2,2)
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+%------------------------------------------------
+\item Dependencia lineal
+
+\respuesta{
+v_2=2v_1
+}
+
+Por lo tanto, los vectores son linealmente dependientes.
+
+%------------------------------------------------
+\item Inicio de Gram--Schmidt
+
+\respuesta{
+u_1=v_1=(1,1,1)
+}
+
+\respuesta{
+u_2=v_2-\operatorname{proj}_{u_1}(v_2)
+}
+
+%------------------------------------------------
+\item Resultado del segundo vector
+
+\respuesta{
+\operatorname{proj}_{u_1}(v_2)=v_2
+}
+
+Entonces:
+
+\respuesta{
+u_2=(2,2,2)-(2,2,2)=(0,0,0)
+}
+
+%------------------------------------------------
+\item Interpretación geométrica
+
+Geométricamente, esto significa que \(v_2\) no aporta una nueva dirección, ya que apunta exactamente en la misma dirección de \(v_1\).
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
