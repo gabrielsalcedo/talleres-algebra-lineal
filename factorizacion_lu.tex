@@ -1,0 +1,78 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{titlesec}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{52pt}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+    \includegraphics[height=1.5cm]{ur_image.png}
+}
+
+\fancyhead[R]{
+\begin{tabular}{r}
+\textbf{Monitoria Álgebra Lineal} \\
+Gabriel Fernando Salcedo Zamora\\
+\end{tabular}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\section*{Ejercicios factorización LU}
+\begin{enumerate}
+    \item Encuentre la matriz diagonal inferior $L$ y la matriz diagonal superior $U$ de las siguientes matrices:
+    \begin{enumerate}
+        \item \begin{pmatrix} 1 & 4 & 6\\2 & -1 & 3 \\ 3 & 2 & 5 \end{pmatrix}
+        \item \begin{pmatrix} 2 & 3 & -1 & 6\\4 & 7 & 2 & 1 \\ -2 & 5 & -2 & 0 \\ 0 & -4 & 5 & 2 \end{pmatrix}
+    \end{enumerate}
+    \item Resuelva el sistema utilizando factorización $LU$. Recuerde que $Ax=LUx=b$
+    \begin{enumerate}
+        \item A = \begin{pmatrix} 1 & 4 & 6\\2 & -1 & 3 \\ 3 & 2 & 5 \end{pmatrix}
+    \quad 
+    b = \begin{pmatrix} -1 \\ 7 \\ 2\end{pmatrix},
+        \item A = \begin{pmatrix} 3 & 9 & -2\\6 & -3 & 8 \\ 4 & 6 & 5 \end{pmatrix}
+    \quad 
+    b = \begin{pmatrix} 3 \\ 10 \\ 4\end{pmatrix},
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\section*{Respuestas}
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item \[
+        L = \begin{pmatrix} 1 & 0 & 0\\2 & 1 & 0 \\ 3 & \frac{10}{9} & 1 \end{pmatrix}
+        \quad 
+         U = \begin{pmatrix} 1 & 4 & 6\\0 & -9 & -9 \\ 0 & 0 & -3 \end{pmatrix}\]
+        \item \[
+        L = \begin{pmatrix} 1 & 0 & 0 & 0 \\2 & 1 & 0 & 0 \\ -1 & 8 & 1 & 0 \\ 0 & -4 & -\frac{3}{5} & 1 \end{pmatrix}
+        \quad 
+        U = \begin{pmatrix} 2 & 3 & -1 & 6\\0 & 1 & 4 & -11 \\ 0 & 0 & -35 & 94 \\ 0 & 0 & 0 & \frac{72}{5} \end{pmatrix}\]
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item x = \begin{pmatrix}
+            -\frac{1}{3} \\[6pt] -\frac{8}{3} \\[6pt] \frac{5}{3} \end{pmatrix}
+        \item x = \begin{pmatrix}
+\frac{275}{63} \\[6pt]
+-\frac{12}{7} \\[6pt]
+-\frac{8}{3}
+\end{pmatrix}
+    \end{enumerate}
+\end{enumerate}
+\end{document}
