@@ -1,0 +1,418 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{55pt}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+    \includegraphics[height=1.5cm]{ur_image.png}
+}
+
+\fancyhead[R]{
+\begin{tabular}{r}
+\textbf{Monitoria Álgebra Lineal} \\
+Gabriel Fernando Salcedo Zamora \\
+\end{tabular}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+\section*{Gauss-Jordan}
+\begin{enumerate}
+    \item Lleve la matriz aumentada $(A|b)$ a su forma escalonada reducida.
+    \renewcommand{\arraystretch}{1.2}
+    \[A=
+\left[
+\begin{array}{ccc|c}
+2 & 4 & 6 & 18 \\
+4 & 5 & 6 & 24 \\
+3 & 1 & -2 & 4
+\end{array}
+\right]
+\]
+    
+    \item Resuelva el siguiente sistema de ecuaciones:
+    \[
+\begin{cases}
+x + y + 2z = 9 \\
+2x + 4y - 3z = 1 \\
+3x + 6y - 5z = 0
+\end{cases}
+\]
+
+    \item ¿Cuál de las siguientes afirmaciones es cierta sobre el sistema dado?
+    \[
+\begin{cases}
+x + y + z = 3 \\
+2x + 2y + 2z = 6 \\
+3x + 3y + 3z = 10
+\end{cases}
+\]
+
+    \begin{enumerate}
+        \item Tiene una solución única $x=1, y=1, z=1$
+        \item Es inconsistente.
+        \item Tiene un número infinito de soluciones.
+    \end{enumerate}
+
+    \item Un extranjero decidió que su próximo destino sería Colombia. 
+
+En su viaje gastó \$30 diarios en Cartagena, \$20 diarios en Medellín y \$20 en Bogotá por concepto de hospedaje. 
+
+En comida gastó \$20 diarios en Cartagena, \$30 diarios en Medellín y \$20 diarios en Bogotá. 
+
+Sus gastos adicionales fueron de \$10 diarios en cada ciudad. 
+
+El extranjero registró que gastó un total de \$340 en hospedaje, \$320 en comida y \$140 en gastos adicionales durante su viaje. Calcule el número de días que estuvo en cada ciudad.
+\end{enumerate}
+
+\newpage
+\section*{Solución}
+
+\begin{enumerate}
+
+%------------------------------------------------
+\item 
+
+\[
+\left[
+\begin{array}{ccc|c}
+2 & 4 & 6 & 18 \\
+4 & 5 & 6 & 24 \\
+3 & 1 & -2 & 4
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_1 \leftarrow \frac12 F_1}
+\left[
+\begin{array}{ccc|c}
+1 & 2 & 3 & 9 \\
+4 & 5 & 6 & 24 \\
+3 & 1 & -2 & 4
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{\substack{F_2 \leftarrow F_2 - 4F_1\\ F_3 \leftarrow F_3 - 3F_1}}
+\left[
+\begin{array}{ccc|c}
+1 & 2 & 3 & 9 \\
+0 & -3 & -6 & -12 \\
+0 & -5 & -11 & -23
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_2 \leftarrow -\frac13 F_2}
+\left[
+\begin{array}{ccc|c}
+1 & 2 & 3 & 9 \\
+0 & 1 & 2 & 4 \\
+0 & -5 & -11 & -23
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_3 \leftarrow F_3 + 5F_2}
+\left[
+\begin{array}{ccc|c}
+1 & 2 & 3 & 9 \\
+0 & 1 & 2 & 4 \\
+0 & 0 & -1 & -3
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_3 \leftarrow -F_3}
+\left[
+\begin{array}{ccc|c}
+1 & 2 & 3 & 9 \\
+0 & 1 & 2 & 4 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{\substack{F_2 \leftarrow F_2 - 2F_3\\ F_1 \leftarrow F_1 - 3F_3}}
+\left[
+\begin{array}{ccc|c}
+1 & 2 & 0 & 0 \\
+0 & 1 & 0 & -2 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_1 \leftarrow F_1 - 2F_2}
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 0 & 4 \\
+0 & 1 & 0 & -2 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+\]
+
+Solución:
+
+\[
+x = 4, \quad y = -2, \quad z = 3
+\]
+
+%------------------------------------------------
+\item 
+
+\[
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 2 & 9 \\
+2 & 4 & -3 & 1 \\
+3 & 6 & -5 & 0
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{\substack{F_2 \leftarrow F_2 - 2F_1\\ F_3 \leftarrow F_3 - 3F_1}}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 2 & 9 \\
+0 & 2 & -7 & -17 \\
+0 & 3 & -11 & -27
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_2 \leftarrow \frac12 F_2}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 2 & 9 \\
+0 & 1 & -\frac{7}{2} & -\frac{17}{2} \\
+0 & 3 & -11 & -27
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_3 \leftarrow F_3 - 3F_2}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 2 & 9 \\
+0 & 1 & -\frac{7}{2} & -\frac{17}{2} \\
+0 & 0 & -\frac12 & -\frac32
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_3 \leftarrow -2F_3}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 2 & 9 \\
+0 & 1 & -\frac{7}{2} & -\frac{17}{2} \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{\substack{F_2 \leftarrow F_2 + \frac{7}{2}F_3\\ F_1 \leftarrow F_1 - 2F_3}}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 0 & 3 \\
+0 & 1 & 0 & 2 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_1 \leftarrow F_1 - F_2}
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 2 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+\]
+
+Solución:
+
+\[
+x = 1, \quad y = 2, \quad z = 3
+\]
+
+%------------------------------------------------
+\item 
+
+\[
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 3 \\
+2 & 2 & 2 & 6 \\
+3 & 3 & 3 & 10
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{\substack{F_2 \leftarrow F_2 - 2F_1\\ F_3 \leftarrow F_3 - 3F_1}}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 3 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array}
+\right]
+\]
+
+La última fila representa la ecuación
+
+\[
+0 = 1
+\]
+
+Por lo tanto, el sistema es inconsistente.
+
+Respuesta correcta: \textbf{b)}
+
+%------------------------------------------------
+\newpage
+
+\item 
+
+Sea:
+
+\[
+x = \text{días en Cartagena}, \quad
+y = \text{días en Medellín}, \quad
+z = \text{días en Bogotá}
+\]
+
+Sistema:
+
+\[
+\begin{cases}
+30x + 20y + 20z = 340 \\
+20x + 30y + 20z = 320 \\
+10x + 10y + 10z = 140
+\end{cases}
+\]
+
+Dividimos la tercera ecuación entre 10:
+
+\[
+x + y + z = 14
+\]
+
+Matriz aumentada:
+
+\[
+\left[
+\begin{array}{ccc|c}
+30 & 20 & 20 & 340 \\
+20 & 30 & 20 & 320 \\
+1 & 1 & 1 & 14
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{\substack{F_1 \leftrightarrow F_3}}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 14 \\
+20 & 30 & 20 & 320 \\
+30 & 20 & 20 & 340
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{\substack{F_2 \leftarrow F_2 - 20F_1\\ F_3 \leftarrow F_3 - 30F_1}}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 14 \\
+0 & 10 & 0 & 40 \\
+0 & -10 & -10 & -80
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_2 \leftarrow \frac{1}{10}F_2}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 14 \\
+0 & 1 & 0 & 4 \\
+0 & -10 & -10 & -80
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_3 \leftarrow F_3 + 10F_2}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 14 \\
+0 & 1 & 0 & 4 \\
+0 & 0 & -10 & -40
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{F_3 \leftarrow -\frac{1}{10}F_3}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 14 \\
+0 & 1 & 0 & 4 \\
+0 & 0 & 1 & 4
+\end{array}
+\right]
+\]
+
+\[
+\xrightarrow{\substack{F_1 \leftarrow F_1 - F_3\\ F_1 \leftarrow F_1 - F_2}}
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 0 & 6 \\
+0 & 1 & 0 & 4 \\
+0 & 0 & 1 & 4
+\end{array}
+\right]
+\]
+\newpage
+Solución:
+
+\[
+x = 6, \quad y = 4, \quad z = 4
+\]
+
+El extranjero estuvo 6 días en Cartagena, 4 días en Medellín y 4 días en Bogotá.
+
+\end{enumerate}
+
+\end{document}
