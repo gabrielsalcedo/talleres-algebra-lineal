@@ -1,0 +1,106 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{52pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+    \includegraphics[height=1.5cm]{ur_image.png}
+}
+
+\fancyhead[R}{
+\begin{tabular}{r}
+\textbf{Monitoria Álgebra Lineal - Ortogonalidad} \\
+Gabriel Fernando Salcedo Zamora \\
+\end{tabular}
+}
+
+\begin{document}
+
+\section*{Taller: Ortogonalidad y proyecciones}
+
+\begin{enumerate}
+
+% Producto punto
+\item Calcule el producto punto y determine si son ortogonales:
+\[
+(1,2,3), (2,-1,0)
+\]
+
+% Proyección
+\item Encuentre la proyección de $\mathbf{u}=(2,1)$ sobre $\mathbf{v}=(1,1)$.
+
+% Ortogonalización
+\item Aplique Gram-Schmidt a:
+\[
+(1,1,0), (1,0,1)
+\]
+
+% Subespacio ortogonal
+\item Encuentre una base de $W^\perp$ si:
+\[
+W = \text{span}\{(1,2,3)\}
+\]
+
+\end{enumerate}
+
+\newpage
+
+\section*{Solución}
+
+\begin{enumerate}
+
+\item Producto punto:
+\[
+1\cdot2 + 2(-1) + 3\cdot0 = 2-2+0=0.
+\]
+
+Son ortogonales.
+
+\item 
+\[
+\text{proj}_{\mathbf{v}}\mathbf{u} =
+\frac{\mathbf{u}\cdot \mathbf{v}}{\mathbf{v}\cdot \mathbf{v}}\mathbf{v}
+\]
+
+\[
+= \frac{2+1}{1+1}(1,1) = \frac{3}{2}(1,1) = (3/2,3/2).
+\]
+
+\item 
+
+\[
+u_1 = (1,1,0)
+\]
+
+\[
+u_2 = (1,0,1) - \frac{(1,0,1)\cdot u_1}{u_1\cdot u_1}u_1
+\]
+
+\[
+= (1,0,1) - \frac{1}{2}(1,1,0)
+= (1/2,-1/2,1)
+\]
+
+\item Buscamos:
+\[
+(x,y,z)\cdot(1,2,3)=0 \Rightarrow x+2y+3z=0.
+\]
+
+Base:
+\[
+\{(-2,1,0),(-3,0,1)\}.
+\]
+
+\end{enumerate}
+
+\end{document}
